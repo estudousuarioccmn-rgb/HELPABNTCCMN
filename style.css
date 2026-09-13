@@ -5,7 +5,7 @@
 .nav{max-width:1180px;width:92%;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between}
 .logo{font:800 1.35rem Montserrat,sans-serif;color:#fff;text-decoration:none;letter-spacing:.03em}.logo span{color:var(--lima)}
 .links{display:flex;gap:28px}.links a{color:#fff;text-decoration:none;font-weight:600}.links a:hover{color:var(--lima)}
-.hero{max-width:1180px;width:92%;margin:auto;padding:8px 0;display:grid;grid-template-columns:1fr .62fr;gap:55px;align-items:center}
+.hero{max-width:1180px;width:92%;margin:auto;padding:5px 0;display:grid;grid-template-columns:1fr .62fr;gap:55px;align-items:center}
 .eyebrow{font:800 .78rem Montserrat,sans-serif;letter-spacing:.14em;color:var(--azul);margin:0 0 9px}
 .hero h1{font:800 clamp(3rem,7vw,6rem) Montserrat,sans-serif;line-height:.9;margin:0;color:#24167d}.hero h1 span{color:var(--azul)}
 .hero h2{font:700 clamp(1.35rem,3vw,2.2rem) Montserrat,sans-serif;color:var(--azul);margin:22px 0 12px}.hero p{font-size:1.1rem;max-width:680px}
