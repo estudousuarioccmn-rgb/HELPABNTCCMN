@@ -29,3 +29,14 @@ footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-fam
 #infograficos {scroll-margin-top: 90px;}
 /* Ajuste do menu para celular */
 @media (max-width: 600px) {.navegação {flex-direction: column;gap: 8px;height: auto;padding: 12px 0;}.links {gap: 18px;}.logotipo {font-size: 1.4rem;}}
+/* Correção responsiva para celulares */
+@media (max-width: 600px) {
+ body{overflow-x:hidden}
+ .nav{width:100%;min-height:auto;padding:10px 12px;flex-direction:column;gap:8px}
+ .logo{font-size:1.15rem;letter-spacing:.01em;white-space:nowrap}
+ .links{width:100%;justify-content:center;gap:18px;font-size:.82rem;white-space:nowrap}
+ .hero{width:92%;padding:45px 0 20px;gap:30px}
+ .hero-text h1{font-size:clamp(2.4rem,11vw,3.2rem);line-height:.95;overflow-wrap:anywhere}
+ .hero h2{font-size:clamp(1.2rem,5.5vw,1.8rem);line-height:1.15}
+ .hero p{font-size:1rem}
+}
