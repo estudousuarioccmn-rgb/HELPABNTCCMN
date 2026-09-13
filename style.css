@@ -36,3 +36,20 @@ footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-fam
 #infograficos {
     scroll-margin-top: 90px;
 }
+/* Ajuste do menu para celular */
+@media (max-width: 600px) {
+  .navegação {
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+    padding: 12px 0;
+  }
+
+  .links {
+    gap: 18px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+}
