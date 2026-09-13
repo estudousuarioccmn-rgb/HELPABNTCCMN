@@ -29,7 +29,11 @@ footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-fam
   width: 100%;
   max-width: 520px;
 }
-transform: translateY(-200px);
+.hero-image img {
+    width: 100%;
+    max-width: 520px;
+    transform: translateY(-200px);
+}
 /* Ajuste da seção de infográficos */
 .seção {
     padding-top: 20px;
