@@ -11,7 +11,7 @@
 .hero h2{font:700 clamp(1.35rem,3vw,2.2rem) Montserrat,sans-serif;color:var(--azul);margin:22px 0 12px}.hero p{font-size:1.1rem;max-width:680px}
 .button,.open{border:0;background:var(--rosa);color:white;border-radius:12px;padding:13px 19px;font:700 .9rem Montserrat,sans-serif;text-decoration:none;display:inline-block;cursor:pointer}
 .hero-image{background:white;padding:12px;border-radius:24px;box-shadow:0 15px 40px rgba(3,108,130,.15)}.hero-image img{width:100%;display:block;border-radius:15px}
-.section{max-width:1180px;width:92%;margin:auto;padding:75px 0}.section h2,.about h2{font:800 clamp(2rem,4vw,3.2rem) Montserrat,sans-serif;color:#28187e;margin:0 0 10px}.intro{margin-top:0}
+.section{max-width:1180px;width:92%;margin:auto;padding:20px 0}.section h2,.about h2{font:800 clamp(2rem,4vw,3.2rem) Montserrat,sans-serif;color:#28187e;margin:0 0 10px}.intro{margin-top:0}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:35px}
 .card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 9px 28px rgba(3,108,130,.11);border-top:5px solid var(--turq);transition:.2s}.card:nth-child(2n){border-top-color:var(--lima)}.card:nth-child(3n){border-top-color:var(--rosa)}.card:nth-child(4n){border-top-color:var(--roxo)}
 .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(3,108,130,.18)}.thumb{background:#eef7f8;aspect-ratio:1/1;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;object-position:top center}.card-body{padding:18px}.card h3{font:700 1.05rem Montserrat,sans-serif;color:var(--azul);margin:0 0 8px}.card p{font-size:.92rem;margin:0 0 15px}.open{background:var(--azul);font-size:.78rem;padding:10px 13px}
@@ -30,4 +30,7 @@ footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-fam
   max-width: 520px;
 }
 transform: translateY(-200px);
-
+/* Ajuste da seção de infográficos */
+.seção {
+    padding-top: 20px;
+}
