@@ -26,10 +26,7 @@ footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-fam
 }
 
 .hero-image img {
-  width: 100%;
-  max-width: 520px;
-}
-.hero-image img {
+  
     width: 100%;
     max-width: 520px;
     transform: translateY(-200px);
