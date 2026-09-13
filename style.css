@@ -1,42 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap');
 :root{--azul:#036c82;--turq:#40bec8;--lima:#cddc29;--rosa:#ec1764;--roxo:#5567af;--laranja:#fb781e;--texto:#172d35;--fundo:#f7fbfc;--branco:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--fundo);color:var(--texto);font-family:"Open Sans",Arial,sans-serif;line-height:1.55}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{margin:0;background:var(--fundo);color:var(--texto);font-family:"Open Sans",Arial,sans-serif;line-height:1.55;overflow-x:hidden}
 .top{position:sticky;top:0;z-index:20;background:rgba(3,108,130,.96);box-shadow:0 3px 18px rgba(0,0,0,.12)}
-.nav{max-width:1180px;width:92%;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font:800 1.35rem Montserrat,sans-serif;color:#fff;text-decoration:none;letter-spacing:.03em}.logo span{color:var(--lima)}
-.links{display:flex;gap:28px}.links a{color:#fff;text-decoration:none;font-weight:600}.links a:hover{color:var(--lima)}
-.hero{max-width:1180px;width:92%;margin:auto;padding:90px 0 20px;display:grid;grid-template-columns:1fr .62fr;gap:55px;align-items:center}
-.eyebrow{font:800 .78rem Montserrat,sans-serif;letter-spacing:.14em;color:var(--azul);margin:0 0 9px}
-.hero h1{font:800 clamp(3rem,7vw,6rem) Montserrat,sans-serif;line-height:.9;margin:0;color:#24167d}.hero h1 span{color:var(--azul)}
-.hero h2{font:700 clamp(1.35rem,3vw,2.2rem) Montserrat,sans-serif;color:var(--azul);margin:22px 0 12px}.hero p{font-size:1.1rem;max-width:680px}
-.button,.open{border:0;background:var(--rosa);color:white;border-radius:12px;padding:13px 19px;font:700 .9rem Montserrat,sans-serif;text-decoration:none;display:inline-block;cursor:pointer}
-.hero-image{background:white;padding:12px;border-radius:24px;box-shadow:0 15px 40px rgba(3,108,130,.15)}.hero-image img{width:100%;display:block;border-radius:15px}
-.section{max-width:1180px;width:92%;margin:auto;padding:20px 0}.section h2,.about h2{font:800 clamp(2rem,4vw,3.2rem) Montserrat,sans-serif;color:#28187e;margin:0 0 10px}.intro{margin-top:0}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:35px}
-.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 9px 28px rgba(3,108,130,.11);border-top:5px solid var(--turq);transition:.2s}.card:nth-child(2n){border-top-color:var(--lima)}.card:nth-child(3n){border-top-color:var(--rosa)}.card:nth-child(4n){border-top-color:var(--roxo)}
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(3,108,130,.18)}.thumb{background:#eef7f8;aspect-ratio:1/1;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;object-position:top center}.card-body{padding:18px}.card h3{font:700 1.05rem Montserrat,sans-serif;color:var(--azul);margin:0 0 8px}.card p{font-size:.92rem;margin:0 0 15px}.open{background:var(--azul);font-size:.78rem;padding:10px 13px}
+.nav{max-width:1180px;width:92%;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font:800 1.35rem Montserrat,sans-serif;color:#fff;text-decoration:none;letter-spacing:.03em;white-space:nowrap}.logo span{color:var(--lima)}
+.links{display:flex;gap:28px}.links a{color:#fff;text-decoration:none;font-weight:600;white-space:nowrap}.links a:hover{color:var(--lima)}
+.hero{max-width:1180px;width:92%;margin:auto;padding:90px 0 20px;display:grid;grid-template-columns:1fr .62fr;gap:55px;align-items:center}.eyebrow{font:800 .78rem Montserrat,sans-serif;letter-spacing:.14em;color:var(--azul);margin:0 0 9px}
+.hero h1{font:800 clamp(3rem,7vw,6rem) Montserrat,sans-serif;line-height:.9;margin:0;color:#24167d;overflow-wrap:anywhere}.hero h1 span{color:var(--azul)}.hero h2{font:700 clamp(1.35rem,3vw,2.2rem) Montserrat,sans-serif;color:var(--azul);margin:22px 0 12px;overflow-wrap:anywhere}.hero p{font-size:1.1rem;max-width:680px}
+.button,.open{border:0;background:var(--rosa);color:white;border-radius:12px;padding:13px 19px;font:700 .9rem Montserrat,sans-serif;text-decoration:none;display:inline-block;cursor:pointer}.hero-image{background:white;padding:12px;border-radius:24px;box-shadow:0 15px 40px rgba(3,108,130,.15);width:100%;overflow:hidden}.hero-image img{width:100%;max-width:100%;height:auto;display:block;border-radius:15px}
+.section{max-width:1180px;width:92%;margin:auto;padding:20px 0}.section h2,.about h2{font:800 clamp(2rem,4vw,3.2rem) Montserrat,sans-serif;color:#28187e;margin:0 0 10px;overflow-wrap:anywhere}.intro{margin-top:0}.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:35px}
+.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 9px 28px rgba(3,108,130,.11);border-top:5px solid var(--turq);transition:.2s}.card:nth-child(2n){border-top-color:var(--lima)}.card:nth-child(3n){border-top-color:var(--rosa)}.card:nth-child(4n){border-top-color:var(--roxo)}.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(3,108,130,.18)}.thumb{background:#eef7f8;aspect-ratio:1/1;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;object-position:top center}.card-body{padding:18px}.card h3{font:700 1.05rem Montserrat,sans-serif;color:var(--azul);margin:0 0 8px}.card p{font-size:.92rem;margin:0 0 15px}.open{background:var(--azul);font-size:.78rem;padding:10px 13px}
 .about{background:white;border-top:1px solid #e0edef}.narrow{max-width:900px}.notice{background:#fff9c7;border-left:6px solid var(--lima);padding:16px 18px;border-radius:10px}
-footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-family:Montserrat,sans-serif}footer strong{font-size:1.2rem}footer span{margin-left:12px}.footer-links{display:flex;justify-content:center;gap:25px;margin-top:13px;font:400 .85rem "Open Sans",sans-serif}
-.footer-author{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:14px;font:400 .85rem "Open Sans",sans-serif}.footer-author strong{font:400 .85rem "Open Sans",sans-serif;margin:0}.footer-author span{margin:0;font:400 .85rem "Open Sans",sans-serif}
+footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-family:Montserrat,sans-serif}footer strong{font-size:1.2rem}footer span{margin-left:12px}.footer-links{display:flex;justify-content:center;gap:25px;margin-top:13px;font:400 .85rem "Open Sans",sans-serif}.footer-author{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:14px;font:400 .85rem "Open Sans",sans-serif}.footer-author strong,.footer-author span{font:400 .85rem "Open Sans",sans-serif;margin:0}
 .modal{display:none;position:fixed;inset:0;background:rgba(12,10,35,.9);z-index:100;padding:25px;overflow:auto}.modal.show{display:flex;align-items:center;justify-content:center}.modal-content{max-width:1000px;width:100%;text-align:center}.modal-content img{max-width:100%;max-height:88vh;object-fit:contain;box-shadow:0 10px 40px #000}.modal-content p{color:#fff;font:700 1.1rem Montserrat,sans-serif}.close{position:fixed;right:20px;top:12px;border:0;background:transparent;color:#fff;font-size:3rem;cursor:pointer;z-index:101}
+#infograficos{scroll-margin-top:90px}
 @media(max-width:950px){.gallery{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-image{max-width:620px}}
-@media(max-width:600px){.links{gap:12px;font-size:.85rem}.gallery{grid-template-columns:1fr}.section{padding:25px 0}.hero{padding:45px 0}.footer-links{flex-direction:column;gap:5px}footer span{display:block;margin:6px 0 0}.footer-author{font-size:.85rem}.footer-author strong,.footer-author span{font-size:.85rem}}
-/* Ajuste visual da página inicial */
-.hero-text h1 {font-size: 3.5rem;}
-.hero-image img {width: 100%;max-width: 520px;}
-/* Ajuste da seção de infográficos */
-.seção {padding-top: 20px;}
-#infograficos {scroll-margin-top: 90px;}
-/* Ajuste do menu para celular */
-@media (max-width: 600px) {.navegação {flex-direction: column;gap: 8px;height: auto;padding: 12px 0;}.links {gap: 18px;}.logotipo {font-size: 1.4rem;}}
-/* Correção responsiva para celulares */
-@media (max-width: 600px) {
- body{overflow-x:hidden}
- .nav{width:100%;min-height:auto;padding:10px 12px;flex-direction:column;gap:8px}
- .logo{font-size:1.15rem;letter-spacing:.01em;white-space:nowrap}
- .links{width:100%;justify-content:center;gap:18px;font-size:.82rem;white-space:nowrap}
- .hero{width:92%;padding:45px 0 20px;gap:30px}
- .hero-text h1{font-size:clamp(2.4rem,11vw,3.2rem);line-height:.95;overflow-wrap:anywhere}
- .hero h2{font-size:clamp(1.2rem,5.5vw,1.8rem);line-height:1.15}
- .hero p{font-size:1rem}
-}
+@media(max-width:760px){.nav{width:100%;padding:10px 14px;min-height:auto;flex-direction:column;gap:8px}.logo{font-size:1.15rem;letter-spacing:.01em}.links{width:100%;justify-content:center;gap:clamp(14px,5vw,28px);font-size:.85rem}.hero{width:92%;padding:45px 0 20px;gap:30px}.hero h1,.hero-text h1{font-size:clamp(2.25rem,10vw,3.5rem);line-height:.95}.hero h2{font-size:clamp(1.2rem,5vw,1.8rem);line-height:1.15}.hero p{font-size:1rem}.hero-image{max-width:100%}}
+@media(max-width:600px){.gallery{grid-template-columns:1fr}.section{padding:25px 0}.hero{padding:38px 0 20px}.footer-links{flex-direction:column;gap:5px}footer span{display:block;margin:6px 0 0}.footer-author,.footer-author strong,.footer-author span{font-size:.85rem}}
+@media(max-width:380px){.logo{font-size:1rem}.links{gap:10px;font-size:.76rem}.hero h1,.hero-text h1{font-size:clamp(2rem,10vw,2.6rem)}.button{font-size:.82rem;padding:12px 16px}}
