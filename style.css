@@ -22,12 +22,12 @@ footer{background:#28177f;color:white;padding:35px 4%;text-align:center;font-fam
 @media(max-width:600px){.links{gap:12px;font-size:.85rem}.gallery{grid-template-columns:1fr}.section{padding:55px 0}.hero{padding:45px 0}.footer-links{flex-direction:column;gap:5px}footer span{display:block;margin:6px 0 0}}
 /* Ajuste visual da página inicial */
 .hero-text h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .hero-image img {
   width: 100%;
-  max-width: 580px;
+  max-width: 560px;
 }
 
 
