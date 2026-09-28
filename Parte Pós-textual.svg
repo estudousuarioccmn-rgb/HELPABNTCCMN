@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="2200" viewBox="0 0 1080 2200">
 <rect width="1080" height="2200" fill="#fff"/>
 <rect x="0" y="0" width="1080" height="175" rx="18" fill="#35148f"/>
-<text x="38" y="72" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#fff">PARTE <tspan fill="#ffd629">PÓS-TEXTUAL</tspan></text>
+<text x="38" y="72" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#fff"><tspan fill="#fff">PÓS-TEXTUAL</tspan></text>
 <text x="38" y="125" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#fff">ELEMENTOS DO TRABALHO ACADÊMICO (ABNT)</text>
 <rect x="770" y="8" width="302" height="159" rx="18" fill="#fff"/>
 <text x="790" y="63" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#111">🪔 BC/CCMN</text>
