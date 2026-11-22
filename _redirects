@@ -1,0 +1,2 @@
+# Permite que cada infográfico tenha um endereço próprio e continue abrindo no portal.
+/infografico/* /index.html 200
