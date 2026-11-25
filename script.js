@@ -13,8 +13,22 @@ function infographicSlug(title) {
     .replace(/^-|-$/g, '') || 'infografico';
 }
 
+function getCardSlug(card) {
+  return card.dataset.slug || infographicSlug(card.dataset.title);
+}
+
 function findCardBySlug(slug) {
-  return cards.find(card => infographicSlug(card.dataset.title) === slug);
+  return cards.find(card => getCardSlug(card) === slug);
+}
+
+function trackPageView(path) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.origin + path,
+      page_path: path
+    });
+  }
 }
 
 function showModal(card) {
@@ -36,14 +50,22 @@ function hideModal() {
 }
 
 function openInfographic(card, trackNavigation = true) {
-  const slug = infographicSlug(card.dataset.title);
+  const slug = getCardSlug(card);
   showModal(card);
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'infographic_open', {
+      infographic_title: card.dataset.title || 'Infográfico',
+      infographic_slug: slug
+    });
+  }
 
   if (trackNavigation) {
     const route = '/infografico/' + slug;
     if (window.location.pathname !== route) {
       // O Cloudflare Web Analytics acompanha mudanças de rota via History API.
       history.pushState({ helpabntccmnInfografico: slug }, '', route);
+      trackPageView(route);
     }
   }
 }
@@ -87,6 +109,7 @@ window.addEventListener('popstate', () => {
     const card = findCardBySlug(slug);
     if (card) {
       showModal(card);
+      trackPageView(window.location.pathname);
       return;
     }
   }
