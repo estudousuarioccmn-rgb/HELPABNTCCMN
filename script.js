@@ -106,11 +106,10 @@ document.addEventListener('keydown', event => {
 
   // Mantém o foco dentro da janela ampliada enquanto ela estiver aberta.
   if (event.key === 'Tab') {
-    const closeButton = modal.querySelector('.close');
-    if (document.activeElement !== closeButton) {
-      event.preventDefault();
-      closeButton.focus();
-    }
+    // O botão de fechar é o único controle interativo da janela.
+    // Mantém o foco nele, impedindo que a navegação escape para o fundo.
+    event.preventDefault();
+    modal.querySelector('.close').focus();
   }
 });
 
