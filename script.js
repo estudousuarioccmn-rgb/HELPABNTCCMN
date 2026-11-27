@@ -7,10 +7,8 @@ const pageTitle = document.title;
 let lastFocusedElement = null;
 const cards = Array.from(document.querySelectorAll('.card'));
 
-function infographicSlug(title, card = null) {
-  // Identificadores exclusivos para os quatro cards publicados com o mesmo título.
-  // Todos os quatro cards de Referências usam rotas exclusivas.
-  // A rota antiga /infografico/referencias continua aceita em findCardBySlug para compatibilidade.
+function legacyInfographicSlug(title, card = null) {
+  // Mantém os endereços descritivos antigos para compatibilidade com links já divulgados.
   const image = card?.dataset.image?.split('?')[0].split('/').pop() || '';
   const referenceRoutes = {
     'Referências.png': 'referencias-definicao-e-orientacoes-gerais',
@@ -23,16 +21,32 @@ function infographicSlug(title, card = null) {
 
   return (title || 'infografico')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\\u0300-\\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '') || 'infografico';
 }
 
-function findCardBySlug(slug) {
-  return cards.find(card => infographicSlug(card.dataset.title, card) === slug) || (slug === 'referencias' ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referências.png') : null);
+function infographicSlug(title, card = null) {
+  // Identificador estatístico permanente: posição do card na galeria, de 01 a 99.
+  const index = cards.indexOf(card);
+  if (index >= 0 && index < 99) return String(index + 1).padStart(2, '0');
+  return legacyInfographicSlug(title, card);
 }
 
+function findCardBySlug(slug) {
+  // Novas rotas numéricas: /infografico/01 até /infografico/99.
+  if (/^\\d{2}$/.test(slug)) {
+    const index = Number(slug) - 1;
+    return index >= 0 && index < cards.length ? cards[index] : null;
+  }
+
+  // Rotas descritivas antigas continuam funcionando.
+  return cards.find(card => legacyInfographicSlug(card.dataset.title, card) === slug)
+    || (slug === 'referencias'
+      ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referências.png')
+      : null);
+}
 function showModal(card) {
   if (!modal.classList.contains('show')) {
     lastFocusedElement = document.activeElement;
