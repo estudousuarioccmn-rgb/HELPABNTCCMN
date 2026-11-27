@@ -4,17 +4,29 @@ const modalTitle = document.getElementById('modal-title');
 const pageTitle = document.title;
 const cards = Array.from(document.querySelectorAll('.card'));
 
-function infographicSlug(title) {
+function infographicSlug(title, card = null) {
+  // Identificadores exclusivos para os quatro cards publicados com o mesmo título.
+  // Mantém a rota antiga /infografico/referencias como compatibilidade para o primeiro card.
+  const image = card?.dataset.image?.split('?')[0].split('/').pop() || '';
+  const referenceRoutes = {
+    'Referência1.png': 'referencias-definicao-e-orientacoes-gerais',
+    'Referências0.png': 'referencias-livro-no-todo-e-partes-de-monografias',
+    'Referências1.png': 'referencias-trabalhos-academicos',
+    'Referências2.png': 'referencias-eventos'
+  };
+
+  if (referenceRoutes[image]) return referenceRoutes[image];
+
   return (title || 'infografico')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\\u0300-\\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '') || 'infografico';
 }
 
 function findCardBySlug(slug) {
-  return cards.find(card => infographicSlug(card.dataset.title) === slug);
+  return cards.find(card => infographicSlug(card.dataset.title, card) === slug) || (slug === 'referencias' ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referência1.png') : null);
 }
 
 function showModal(card) {
@@ -36,7 +48,7 @@ function hideModal() {
 }
 
 function openInfographic(card, trackNavigation = true) {
-  const slug = infographicSlug(card.dataset.title);
+  const slug = infographicSlug(card.dataset.title, card);
   showModal(card);
 
   if (trackNavigation) {
