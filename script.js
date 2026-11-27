@@ -7,10 +7,8 @@ const pageTitle = document.title;
 let lastFocusedElement = null;
 const cards = Array.from(document.querySelectorAll('.card'));
 
-function infographicSlug(title, card = null) {
-  // Identificadores exclusivos para os quatro cards publicados com o mesmo título.
-  // Todos os quatro cards de Referências usam rotas exclusivas.
-  // A rota antiga /infografico/referencias continua aceita em findCardBySlug para compatibilidade.
+function legacyInfographicSlug(title, card = null) {
+  // Mantém os endereços descritivos antigos para compatibilidade com links já divulgados.
   const image = card?.dataset.image?.split('?')[0].split('/').pop() || '';
   const referenceRoutes = {
     'Referências.png': 'referencias-definicao-e-orientacoes-gerais',
@@ -29,10 +27,25 @@ function infographicSlug(title, card = null) {
     .replace(/^-|-$/g, '') || 'infografico';
 }
 
-function findCardBySlug(slug) {
-  return cards.find(card => infographicSlug(card.dataset.title, card) === slug) || (slug === 'referencias' ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referências.png') : null);
+function infographicSlug(title, card = null) {
+  // Identificador estatístico permanente, definido individualmente no HTML.
+  const analyticsId = card?.dataset.analyticsId || '';
+  if (/^\d{2}$/.test(analyticsId)) return analyticsId;
+  return legacyInfographicSlug(title, card);
 }
 
+function findCardBySlug(slug) {
+  // Novas rotas numéricas: identificadores fixos definidos em cada card.
+  if (/^\d{2}$/.test(slug)) {
+    return cards.find(card => card.dataset.analyticsId === slug) || null;
+  }
+
+  // Rotas descritivas antigas continuam funcionando.
+  return cards.find(card => legacyInfographicSlug(card.dataset.title, card) === slug)
+    || (slug === 'referencias'
+      ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referências.png')
+      : null);
+}
 function showModal(card) {
   if (!modal.classList.contains('show')) {
     lastFocusedElement = document.activeElement;
