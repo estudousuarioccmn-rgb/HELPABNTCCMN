@@ -26,7 +26,7 @@ function infographicSlug(title, card = null) {
 }
 
 function findCardBySlug(slug) {
-  return cards.find(card => infographicSlug(card.dataset.title, card) === slug) || (slug === 'referencias' ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referência1.png') : null);
+  return cards.find(card => infographicSlug(card.dataset.title, card) === slug) || (slug === 'referencias' ? cards.find(card => card.dataset.image?.split('?')[0].split('/').pop() === 'Referências.png') : null);
 }
 
 function showModal(card) {
