@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
 <header class="top">
-  <nav class="nav">
+  <nav class="nav" aria-label="Navegação principal">
     <a class="logo" href="#inicio">HELP<span>ABNT</span>CCMN</a>
     <div class="links">
       <a href="#inicio">Início</a>
@@ -19,7 +20,7 @@
     </div>
   </nav>
 </header>
-<main>
+<main id="conteudo">
   <section id="inicio" class="hero">
     <div class="hero-text">
       <p class="eyebrow">BIBLIOTECA DO CCMN/UFRJ</p>
@@ -110,10 +111,10 @@
   </div>
 </footer>
 
-<div id="modal" class="modal" aria-hidden="true">
-  <button class="close" aria-label="Fechar">×</button>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true" tabindex="-1">
+  <button class="close" type="button" aria-label="Fechar infográfico">×</button>
   <div class="modal-content">
-    <p id="modal-title"></p>
+    <h2 id="modal-title"></h2>
     <img id="modal-image" src="" alt="">
   </div>
 </div>
