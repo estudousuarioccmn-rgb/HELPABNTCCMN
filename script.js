@@ -28,17 +28,16 @@ function legacyInfographicSlug(title, card = null) {
 }
 
 function infographicSlug(title, card = null) {
-  // Identificador estatístico permanente: posição do card na galeria, de 01 a 99.
-  const index = cards.indexOf(card);
-  if (index >= 0 && index < 99) return String(index + 1).padStart(2, '0');
+  // Identificador estatístico permanente, definido individualmente no HTML.
+  const analyticsId = card?.dataset.analyticsId || '';
+  if (/^\d{2}$/.test(analyticsId)) return analyticsId;
   return legacyInfographicSlug(title, card);
 }
 
 function findCardBySlug(slug) {
-  // Novas rotas numéricas: /infografico/01 até /infografico/99.
+  // Novas rotas numéricas: identificadores fixos definidos em cada card.
   if (/^\d{2}$/.test(slug)) {
-    const index = Number(slug) - 1;
-    return index >= 0 && index < cards.length ? cards[index] : null;
+    return cards.find(card => card.dataset.analyticsId === slug) || null;
   }
 
   // Rotas descritivas antigas continuam funcionando.
