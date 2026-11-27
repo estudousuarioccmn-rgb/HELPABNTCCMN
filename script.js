@@ -1,6 +1,8 @@
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-image');
 const modalTitle = document.getElementById('modal-title');
+const modalDescription = document.getElementById('modal-description');
+const modalDescriptionText = document.getElementById('modal-description-text');
 const pageTitle = document.title;
 let lastFocusedElement = null;
 const cards = Array.from(document.querySelectorAll('.card'));
@@ -39,6 +41,9 @@ function showModal(card) {
   modalImg.src = card.dataset.image;
   modalImg.alt = title;
   modalTitle.textContent = title;
+  const accessibleDescription = card.dataset.accessibleDescription || '';
+  modalDescription.hidden = !accessibleDescription;
+  modalDescriptionText.textContent = accessibleDescription;
   modal.classList.add('show');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
