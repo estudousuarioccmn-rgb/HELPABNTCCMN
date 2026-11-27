@@ -7,6 +7,16 @@ const pageTitle = document.title;
 let lastFocusedElement = null;
 const cards = Array.from(document.querySelectorAll('.card'));
 
+function trackPageView(path = window.location.pathname) {
+  if (typeof window.gtag !== 'function') return;
+
+  window.gtag('event', 'page_view', {
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: path
+  });
+}
+
 function legacyInfographicSlug(title, card = null) {
   // Mantém os endereços descritivos antigos para compatibilidade com links já divulgados.
   const image = card?.dataset.image?.split('?')[0].split('/').pop() || '';
@@ -84,6 +94,7 @@ function openInfographic(card, trackNavigation = true) {
     if (window.location.pathname !== route) {
       // O Cloudflare Web Analytics acompanha mudanças de rota via History API.
       history.pushState({ helpabntccmnInfografico: slug }, '', route);
+      trackPageView(route);
     }
   }
 }
@@ -139,11 +150,13 @@ window.addEventListener('popstate', () => {
     const card = findCardBySlug(slug);
     if (card) {
       showModal(card);
+      trackPageView();
       return;
     }
   }
 
   hideModal();
+  trackPageView();
 });
 
 // Permite abrir diretamente ou compartilhar o endereço de um infográfico.
@@ -163,3 +176,6 @@ if (routeMatch) {
     window.history.replaceState({}, '', '/');
   }
 }
+
+// Registra a visualização inicial, inclusive quando um infográfico é aberto por link direto.
+trackPageView();
