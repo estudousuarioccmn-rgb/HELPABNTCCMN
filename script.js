@@ -6,7 +6,8 @@ const cards = Array.from(document.querySelectorAll('.card'));
 
 function infographicSlug(title, card = null) {
   // Identificadores exclusivos para os quatro cards publicados com o mesmo título.
-  // Mantém a rota antiga /infografico/referencias como compatibilidade para o primeiro card.
+  // Todos os quatro cards de Referências usam rotas exclusivas.
+  // A rota antiga /infografico/referencias continua aceita em findCardBySlug para compatibilidade.
   const image = card?.dataset.image?.split('?')[0].split('/').pop() || '';
   const referenceRoutes = {
     'Referências.png': 'referencias-definicao-e-orientacoes-gerais',
