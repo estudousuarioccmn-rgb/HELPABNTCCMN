@@ -2,6 +2,7 @@ const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-image');
 const modalTitle = document.getElementById('modal-title');
 const pageTitle = document.title;
+let lastFocusedElement = null;
 const cards = Array.from(document.querySelectorAll('.card'));
 
 function infographicSlug(title, card = null) {
@@ -31,6 +32,9 @@ function findCardBySlug(slug) {
 }
 
 function showModal(card) {
+  if (!modal.classList.contains('show')) {
+    lastFocusedElement = document.activeElement;
+  }
   const title = card.dataset.title || 'Infográfico';
   modalImg.src = card.dataset.image;
   modalImg.alt = title;
@@ -39,6 +43,7 @@ function showModal(card) {
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   document.title = title + ' | HELPABNTCCMN';
+  document.querySelector('.close').focus();
 }
 
 function hideModal() {
@@ -46,6 +51,10 @@ function hideModal() {
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
   document.title = pageTitle;
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus();
+  }
+  lastFocusedElement = null;
 }
 
 function openInfographic(card, trackNavigation = true) {
@@ -87,8 +96,21 @@ modal.addEventListener('click', event => {
 });
 
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && modal.classList.contains('show')) {
+  if (!modal.classList.contains('show')) return;
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
     closeModal();
+    return;
+  }
+
+  // Mantém o foco dentro da janela ampliada enquanto ela estiver aberta.
+  if (event.key === 'Tab') {
+    const closeButton = modal.querySelector('.close');
+    if (document.activeElement !== closeButton) {
+      event.preventDefault();
+      closeButton.focus();
+    }
   }
 });
 
