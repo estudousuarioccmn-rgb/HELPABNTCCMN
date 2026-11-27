@@ -21,7 +21,7 @@ function legacyInfographicSlug(title, card = null) {
 
   return (title || 'infografico')
     .normalize('NFD')
-    .replace(/[\\u0300-\\u036f]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '') || 'infografico';
@@ -36,7 +36,7 @@ function infographicSlug(title, card = null) {
 
 function findCardBySlug(slug) {
   // Novas rotas numéricas: /infografico/01 até /infografico/99.
-  if (/^\\d{2}$/.test(slug)) {
+  if (/^\d{2}$/.test(slug)) {
     const index = Number(slug) - 1;
     return index >= 0 && index < cards.length ? cards[index] : null;
   }
