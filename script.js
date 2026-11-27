@@ -39,7 +39,7 @@ function showModal(card) {
   }
   const title = card.dataset.title || 'Infográfico';
   modalImg.src = card.dataset.image;
-  modalImg.alt = title;
+  modalImg.alt = card.querySelector('.thumb img')?.alt || title;
   modalTitle.textContent = title;
   const accessibleDescription = card.dataset.accessibleDescription || '';
   modalDescription.hidden = !accessibleDescription;
