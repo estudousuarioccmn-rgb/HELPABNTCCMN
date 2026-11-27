@@ -9,7 +9,7 @@ function infographicSlug(title, card = null) {
   // Mantém a rota antiga /infografico/referencias como compatibilidade para o primeiro card.
   const image = card?.dataset.image?.split('?')[0].split('/').pop() || '';
   const referenceRoutes = {
-    'Referência1.png': 'referencias-definicao-e-orientacoes-gerais',
+    'Referências.png': 'referencias-definicao-e-orientacoes-gerais',
     'Referências0.png': 'referencias-livro-no-todo-e-partes-de-monografias',
     'Referências1.png': 'referencias-trabalhos-academicos',
     'Referências2.png': 'referencias-eventos'
