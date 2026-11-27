@@ -39,7 +39,7 @@
     <h2>Infográficos HELPABNTCCMN</h2>
     <p class="intro"><strong>Clique em qualquer material para ampliar e consultar as orientações.</strong></p>
     <div class="gallery">
-      <article class="card" data-image="estrutura.png" data-title="Estrutura do trabalho acadêmico"><div class="thumb"><img src="estrutura.png" alt="Estrutura do trabalho acadêmico"></div><div class="card-body"><h3>Estrutura do trabalho acadêmico</h3><p>Visão geral dos elementos pré-textuais, textuais e pós-textuais.</p><button class="open">Abrir infográfico</button></div></article>
+      <article class="card" data-image="estrutura.png" data-title="Estrutura do trabalho acadêmico" data-accessible-description="O trabalho acadêmico é organizado em três partes: elementos pré-textuais, que antecedem o texto; elementos textuais, que apresentam o conteúdo do trabalho; e elementos pós-textuais, que complementam o documento. O infográfico apresenta esses elementos em sequência, indicando quais são obrigatórios e quais são opcionais."><div class="thumb"><img src="estrutura.png" alt="Estrutura do trabalho acadêmico"></div><div class="card-body"><h3>Estrutura do trabalho acadêmico</h3><p>Visão geral dos elementos pré-textuais, textuais e pós-textuais.</p><button class="open">Abrir infográfico</button></div></article>
       <article class="card" data-image="formato.png" data-title="Formato e margens"><div class="thumb"><img src="formato.png" alt="Formato e margens"></div><div class="card-body"><h3>Formato e margens</h3><p>Orientações sobre formato A4, margens, fonte e espaçamento.</p><button class="open">Abrir infográfico</button></div></article>
       <article class="card" data-image="paginacao.png" data-title="Paginação"><div class="thumb"><img src="paginacao.png" alt="Paginação"></div><div class="card-body"><h3>Paginação</h3><p>Veja como contar, iniciar e posicionar a numeração das páginas.</p><button class="open">Abrir infográfico</button></div></article>
       <article class="card" data-image="Secoes.png" data-title="Indicativos de seções"><div class="thumb"><img src="Secoes.png" alt="Indicativos de seções"></div><div class="card-body"><h3>Indicativos de seções</h3><p>Hierarquia, numeração e apresentação das seções do trabalho.</p><button class="open">Abrir infográfico</button></div></article>
@@ -116,6 +116,10 @@
   <div class="modal-content">
     <h2 id="modal-title"></h2>
     <img id="modal-image" src="" alt="">
+    <details id="modal-description" class="modal-description" hidden>
+      <summary>Descrição textual</summary>
+      <p id="modal-description-text"></p>
+    </details>
   </div>
 </div>
 <script src="script.js"></script>
